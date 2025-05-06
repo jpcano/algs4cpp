@@ -5,12 +5,15 @@ template <typename T>
 class Stack {
  public:
   Stack() : first(nullptr), N(0) {}
+  ~Stack() {
+    while (!isEmpty()) pop();
+  }
 
   bool isEmpty() { return first == nullptr; }
   int size() { return N; }
   void push(T item) {
     auto oldfirst = first;
-    first = std::make_shared<Node>(item);
+    first = new Node(item);
     first->item = item;
     first->next = oldfirst;
     N++;
@@ -19,8 +22,10 @@ class Stack {
     if (isEmpty()) {
       throw std::out_of_range("Stack underflow");
     }
+    auto oldfirst = first;
     T item = first->item;
     first = first->next;
+    delete oldfirst;
     N--;
     return item;
   }
@@ -29,9 +34,9 @@ class Stack {
   class Node {
    public:
     T item;
-    std::shared_ptr<Node> next;
+    Node* next;
     Node(T item) : item(item), next(nullptr) {}
   };
-  std::shared_ptr<Node> first;
+  Node* first;
   int N;
 };
