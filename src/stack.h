@@ -6,31 +6,31 @@ class Stack {
  public:
   Stack() : first(nullptr), N(0) {}
 
-  bool isEmpty() { return N == 0; }
+  bool isEmpty() { return first == nullptr; }
   int size() { return N; }
-  void push(T value) {
-    auto newNode = std::make_shared<Node>(value);
-    newNode->next = first;
-    first = newNode;
+  void push(T item) {
+    auto oldfirst = first;
+    first = std::make_shared<Node>(item);
+    first->item = item;
+    first->next = oldfirst;
     N++;
   }
   T pop() {
     if (isEmpty()) {
-      throw std::out_of_range("Stack is empty");
+      throw std::out_of_range("Stack underflow");
     }
-    auto temp = first;
-    T value = first->data;
+    T item = first->item;
     first = first->next;
     N--;
-    return value;
+    return item;
   }
 
  private:
   class Node {
    public:
-    T data;
+    T item;
     std::shared_ptr<Node> next;
-    Node(T value) : data(value), next(nullptr) {}
+    Node(T item) : item(item), next(nullptr) {}
   };
   std::shared_ptr<Node> first;
   int N;
