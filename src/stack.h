@@ -1,4 +1,3 @@
-#include <memory>
 #include <stdexcept>
 
 template <typename T>
