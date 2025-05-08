@@ -16,14 +16,14 @@ class Bag {
    public:
     using iterator_category = std::forward_iterator_tag;
     using difference_type = std::ptrdiff_t;
-    using value_type = Node;
-    using pointer = Node*;
-    using reference = Node&;
+    using value_type = T;
+    using pointer = T*;
+    using reference = T&;
 
     IteratorBag(Node* ptr) : m_ptr(ptr) {}
 
-    T& operator*() const { return m_ptr->item; }
-    pointer operator->() { return m_ptr; }
+    reference operator*() const { return m_ptr->item; }
+    pointer operator->() { return &(m_ptr)->item; }
     IteratorBag& operator++() {
       m_ptr = m_ptr->next;
       return *this;
@@ -33,12 +33,8 @@ class Bag {
       ++(*this);
       return tmp;
     }
-    friend bool operator==(const IteratorBag& a, const IteratorBag& b) {
-      return a.m_ptr == b.m_ptr;
-    };
-    friend bool operator!=(const IteratorBag& a, const IteratorBag& b) {
-      return a.m_ptr != b.m_ptr;
-    };
+    bool operator==(IteratorBag b) const { return m_ptr == b.m_ptr; };
+    bool operator!=(IteratorBag b) const { return m_ptr != b.m_ptr; };
 
    private:
     Node* m_ptr;
