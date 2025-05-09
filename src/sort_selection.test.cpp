@@ -21,4 +21,12 @@ TEST_CASE("sort_selection.cpp test", "[sort_selection.cpp]") {
   REQUIRE(SelectionSort<int>::isSorted(a) == false);
   SelectionSort<int>::sort(a);
   REQUIRE(SelectionSort<int>::isSorted(a) == true);
+
+  std::vector<char> b = {'s', 'o', 'r', 't', 'e', 'x', 'a', 'm', 'p', 'l', 'e'};
+  REQUIRE(SelectionSort<char>::isSorted(b) == false);
+  SelectionSort<char>::sort(b);
+  REQUIRE(SelectionSort<char>::isSorted(b) == true);
+  std::vector<char> expected = {'a', 'e', 'e', 'l', 'm', 'o',
+                                'p', 'r', 's', 't', 'x'};
+  REQUIRE(b == expected);
 }
