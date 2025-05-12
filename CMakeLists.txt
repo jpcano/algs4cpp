@@ -4,6 +4,7 @@ project(algs4cpp VERSION 0.1)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+add_executable(SortCompare "src/sort_compare.cpp")
 
 ### Tests
 
