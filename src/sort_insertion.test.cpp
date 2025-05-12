@@ -7,4 +7,5 @@
 TEST_CASE("sort_insertion.cpp test", "[sort_insertion.cpp]") {
   sortIntTest<InsertionSort<int>>();
   sortCharTest<InsertionSort<char>>();
+  sortRandomDoubleTest<InsertionSort<double>>();
 }

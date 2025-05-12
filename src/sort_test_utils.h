@@ -1,5 +1,27 @@
+#pragma once
+#include <bits/stdc++.h>
+
 #include <catch2/catch_test_macros.hpp>
 #include <vector>
+
+template <typename SortClass>
+void sortRandomDoubleTest() {
+  int N = 100;
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_real_distribution<> dis(0.0, 1.0);
+
+  // Create a vector of N random doubles
+  std::vector<double> a(N);
+  for (int j = 0; j < N; j++) a[j] = dis(gen);
+  // Copy the vector to b for the second sort
+  std::vector<double> b = a;
+  // Sort a vector using STL sort
+  std::sort(a.begin(), a.end(), [](double a, double b) { return a < b; });
+  // Sort b using the custom sort class
+  SortClass::sort(b);
+  REQUIRE(a == b);
+}
 
 template <typename SortClass>
 void sortIntTest() {
