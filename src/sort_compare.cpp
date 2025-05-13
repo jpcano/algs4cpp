@@ -6,11 +6,13 @@
 
 #include "sort_insertion.h"
 #include "sort_selection.h"
+#include "sort_shellshort.h"
 
 double time(std::string alg, std::vector<double> a) {
   auto start = std::chrono::high_resolution_clock::now();
   if (alg == "Insertion") InsertionSort<double>::sort(a);
   if (alg == "Selection") SelectionSort<double>::sort(a);
+  if (alg == "Shell") Shellsort<double>::sort(a);
   auto stop = std::chrono::high_resolution_clock::now();
   auto duration =
       std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
