@@ -10,10 +10,11 @@ class Shellsort : public SortBase<T> {
     int h = 1;
     while (h < N / 3) h = 3 * h + 1;
     while (h >= 1) {
-      for (int i = h; i < N; i++)
+      for (int i = h; i < N; i++) {
         for (int j = i; j >= h && SortBase<T>::less(a[j], a[j - h]); j -= h)
           SortBase<T>::exch(a, j, j - h);
-      h /= 3;
+      }
+      h = h / 3;
     }
   }
 };

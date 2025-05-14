@@ -4,6 +4,9 @@ project(algs4cpp VERSION 0.1)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+SET(CMAKE_CXX_FLAGS_DEBUG "-O0")
+SET(CMAKE_C_FLAGS_DEBUG "-O0")
+
 add_executable(SortCompare "src/sort_compare.cpp")
 
 ### Tests

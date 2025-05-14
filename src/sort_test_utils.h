@@ -16,10 +16,12 @@ void sortRandomDoubleTest() {
   for (int j = 0; j < N; j++) a[j] = dis(gen);
   // Copy the vector to b for the second sort
   std::vector<double> b = a;
-  // Sort a vector using STL sort
-  std::sort(a.begin(), a.end(), [](double a, double b) { return a < b; });
+  REQUIRE(a == b);
   // Sort b using the custom sort class
   SortClass::sort(b);
+  REQUIRE(a != b);
+  // Sort a vector using STL sort
+  std::sort(a.begin(), a.end(), [](double a, double b) { return a < b; });
   REQUIRE(a == b);
 }
 

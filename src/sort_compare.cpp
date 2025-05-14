@@ -15,8 +15,8 @@ double time(std::string alg, std::vector<double> a) {
   if (alg == "Shell") Shellsort<double>::sort(a);
   auto stop = std::chrono::high_resolution_clock::now();
   auto duration =
-      std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
-  return duration.count() / 1e6;  // Convert to seconds
+      std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
+  return duration.count() / 1e9;  // Convert to seconds
 }
 
 double timeRandomInput(std::string alg, int N, int T) {

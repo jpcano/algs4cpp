@@ -5,7 +5,7 @@
 template <typename T>
 class SortBase {
  protected:
-  static bool less(T v, T w) { return v < w; }
+  static bool less(const T& v, const T& w) { return v < w; }
   static void exch(std::vector<T>& a, int i, int j) {
     T t = a[i];
     a[i] = a[j];
