@@ -14,4 +14,4 @@ add_executable(SortCompare "src/sort_compare.cpp")
 file(GLOB_RECURSE TEST_FILES
   "${PROJECT_SOURCE_DIR}/src/*.test.cpp"
 )
-add_executable(DoctestTesting ${TEST_FILES})
+add_executable(tests ${TEST_FILES})
