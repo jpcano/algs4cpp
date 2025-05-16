@@ -1,10 +1,11 @@
 #include "stack.h"
 
-#include <catch2/catch_test_macros.hpp>
 #include <stdexcept>
 #include <string>
 
-TEST_CASE("stack.cpp test", "[stack.cpp]") {
+#include "doctest.h"
+
+TEST_CASE("stack.cpp test") {
   Stack<std::string> stack;
   REQUIRE(stack.isEmpty() == true);
   REQUIRE(stack.size() == 0);

@@ -1,10 +1,11 @@
 #include "bag.h"
 
-#include <catch2/catch_test_macros.hpp>
 #include <string>
 #include <vector>
 
-TEST_CASE("bag.cpp test", "[bag.cpp]") {
+#include "doctest.h"
+
+TEST_CASE("bag.cpp test") {
   Bag<std::string> bag;
   std::vector<std::string> bag_content;
 

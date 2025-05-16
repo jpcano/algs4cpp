@@ -1,10 +1,11 @@
 #include "queue.h"
 
-#include <catch2/catch_test_macros.hpp>
 #include <stdexcept>
 #include <string>
 
-TEST_CASE("queue.cpp test", "[queue.cpp]") {
+#include "doctest.h"
+
+TEST_CASE("queue.cpp test") {
   Queue<std::string> queue;
   REQUIRE(queue.isEmpty() == true);
   REQUIRE(queue.size() == 0);

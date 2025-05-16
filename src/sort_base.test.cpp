@@ -1,10 +1,11 @@
 #include "sort_base.h"
 
-#include <catch2/catch_test_macros.hpp>
 #include <string>
 #include <vector>
 
-TEST_CASE("sort_base.cpp test", "[sort_base.cpp]") {
+#include "doctest.h"
+
+TEST_CASE("sort_base.cpp test") {
   std::vector<int> a;
 
   a = {0};

@@ -7,20 +7,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 SET(CMAKE_CXX_FLAGS_DEBUG "-O0")
 SET(CMAKE_C_FLAGS_DEBUG "-O0")
 
+#### SortCompare CLI
 add_executable(SortCompare "src/sort_compare.cpp")
 
-### Tests
-
-Include(FetchContent)
-FetchContent_Declare(
-  Catch2
-  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-  GIT_TAG        v3.8.1
-)
-FetchContent_MakeAvailable(Catch2)
+#### Testing
 file(GLOB_RECURSE TEST_FILES
   "${PROJECT_SOURCE_DIR}/src/*.test.cpp"
 )
-add_executable(tests ${TEST_FILES})
-target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)
-
+add_executable(DoctestTesting ${TEST_FILES})

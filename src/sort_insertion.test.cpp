@@ -1,10 +1,9 @@
 #include "sort_insertion.h"
 
-#include <catch2/catch_test_macros.hpp>
-
+#include "doctest.h"
 #include "sort_test_utils.h"
 
-TEST_CASE("sort_insertion.cpp test", "[sort_insertion.cpp]") {
+TEST_CASE("sort_insertion.cpp test") {
   sortIntTest<InsertionSort<int>>();
   sortCharTest<InsertionSort<char>>();
   sortRandomDoubleTest<InsertionSort<double>>();
